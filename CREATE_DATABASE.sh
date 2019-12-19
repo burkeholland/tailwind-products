@@ -14,7 +14,7 @@ read -p  ""
 echo "Beginning database creation process..."
 
 echo "Creating Resource Group: $groupName..."
-az group create -n $groupName -o none
+az group create -n $groupName -o none -l eastus
 
 echo "Creating Cosmos DB database $accountName in Resource Group $groupName..."
 echo "This can take up to 10 minutes. That's the perfect amount of time to watch this YouTube video: https://youtu.be/OzKk4Wfnz1k"
@@ -36,7 +36,7 @@ echo "Installing Node modules..."
 npm i --silent
 
 echo "Populating database..."
-node data/POPULATE_DATABASE.js --endpoint $endpoint --key $key --databaseName $databaseName --containerName $containerName
+node POPULATE_DATABASE.js --endpoint $endpoint --key $key --databaseName $databaseName --containerName $containerName
 
 echo "Finished! Your database, $accountName, is now ready."
 
