@@ -1,20 +1,19 @@
 #!/bin/bash
-rndm=$RANDOM
-name=tailwind
-groupName=RG-$rndm
-accountName=$name-$rndm
+rnd=$RANDOM
+groupName=tailwind-products-manager
+accountName=tailwind-traders-$RANDOM
 databaseName=tailwind
 containerName=products
 
 echo "This is your concierge tenant id. Please copy this to the clipboard and press the [Enter] key to continue."
-az account list --query "[?name=='Concierge Subscription'].tenantId" -o tsv
+# az account list --query "[?name=='Concierge Subscription'].tenantId" -o tsv
 
 read -p  ""
 
 echo "Beginning database creation process..."
 
 echo "Creating Resource Group: $groupName..."
-az group create -n $groupName -o none -l eastus
+az group create -n $groupName -o none
 
 echo "Creating Cosmos DB database $accountName in Resource Group $groupName..."
 echo "This can take up to 10 minutes. That's the perfect amount of time to watch this YouTube video: https://youtu.be/OzKk4Wfnz1k"
