@@ -12,8 +12,7 @@ read -p  ""
 
 echo "Beginning database creation process..."
 
-echo "Creating Resource Group: $groupName..."
-az group create -n $groupName -o none
+groupName=$(az group list | jq -r ".[].name")
 
 echo "Creating Cosmos DB database $accountName in Resource Group $groupName..."
 echo "This can take up to 10 minutes. That's the perfect amount of time to watch this YouTube video: https://youtu.be/OzKk4Wfnz1k"
