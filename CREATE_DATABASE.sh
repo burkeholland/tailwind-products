@@ -6,7 +6,7 @@ databaseName=tailwind
 containerName=products
 
 echo "This is your concierge tenant id. Please copy this to the clipboard and press the [Enter] key to continue."
-# az account list --query "[?name=='Concierge Subscription'].tenantId" -o tsv
+az account list --query "[?name=='Concierge Subscription'].tenantId" -o tsv
 
 read -p  ""
 
