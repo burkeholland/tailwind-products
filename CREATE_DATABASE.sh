@@ -19,10 +19,10 @@ echo "This can take up to 10 minutes. That's the perfect amount of time to watch
 az cosmosdb create -n $accountName -g $groupName -o none
 
 echo "Creating 'tailwind' database in $accountName..."
-az cosmosdb database create -n $accountName -g $groupName --db-name tailwind -o none
+az cosmosdb sql database create -n $accountName -g $groupName --db-name tailwind -o none
 
 echo "Creating 'products' collection in 'tailwind' database..."
-az cosmosdb collection create -g $groupName -n $accountName -c $containerName -d $databaseName -o none
+az cosmosdb sql container create -g $groupName -n $accountName -c $containerName -d $databaseName -o none
 
 echo "Finished scaffolding database"
 
@@ -34,8 +34,6 @@ echo "Installing Node modules..."
 npm i --silent
 
 echo "Populating database..."
-node POPULATE_DATABASE.js --endpoint $endpoint --key $key --databaseName $databaseName --containerName $containerName
+node ./POPULATE_DATABASE.js --endpoint $endpoint --key $key --databaseName $databaseName --containerName $containerName
 
 echo "Finished! Your database, $accountName, is now ready."
-
-echo "Please copy the following into the index.html page in your project per the instructions in the Learn module."
