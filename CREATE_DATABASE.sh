@@ -19,7 +19,7 @@ echo "This can take up to 10 minutes. That's the perfect amount of time to watch
 az cosmosdb create -n $accountName -g $groupName -o none
 
 echo "Creating 'tailwind' database in $accountName..."
-az cosmosdb sql database create -n $accountName -g $groupName --db-name tailwind -o none
+az cosmosdb sql database create --a $accountName -g $groupName -n $databaseName -o none
 
 echo "Creating 'products' collection in 'tailwind' database..."
 az cosmosdb sql container create -g $groupName -n $accountName -c $containerName -d $databaseName -o none
